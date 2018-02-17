@@ -1,0 +1,31 @@
+<div class="container">
+  <div>
+    <table class="table table-striped">
+      <thead>
+      <th>Nome</th>
+      <th>Cidade</th>
+      <th>Estado</th>
+      <th>Status</th>
+      <th class="action"></th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pessoa of pessoas">
+          <td>{{ pessoa.nome }}</td>
+          <td>{{ pessoa.cidade }}</td>
+          <td>{{ pessoa.estado }}</td>
+          <td>{{ pessoa.status}}</td>
+          <td class="text-center"> 
+            <a href="#" class="btn btn-secondary btn-sm"><i class="fa fa-pencil"></i></a>
+            <a href="#" class="btn btn-secondary btn-sm"><i class="fa fa-trash"></i></a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <br>
+
+  <div>
+    <button class="btn btn-secondary">Nova Pessoa</button>
+  </div>
+</div>
