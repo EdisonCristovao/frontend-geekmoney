@@ -1,0 +1,11 @@
+{
+  "pessoas": [
+    {
+      "id": 1,
+      "nome": "Edison Junior",
+      "cidade": "São josé",
+      "estado": "Santa catarina",
+      "status": true
+    }
+  ]
+}

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PessoaService } from './../../../services/pessoa.service';
 
 @Component({
   selector: 'app-busca-pessoa',
@@ -7,13 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BuscaPessoaComponent implements OnInit {
 
-  pessoas: any[] = [
-    {nome: "Bety linda", cidade: "Real parque", estado: "santa Catarina", status: true},
-    {nome: "Edi Junior", cidade: "São josé", estado: "santa Catarina", status: false}];
+  pessoas: any[];
 
-  constructor() { }
+  constructor(private pessoaService: PessoaService) { }
 
   ngOnInit() {
+    this.consultar();
+  }
+
+  consultar() {
+    this.pessoaService.consultar()
+    .then(pessoas => {
+      this.pessoas = pessoas
+    })
+  }
+  remove(id:number) {
+    this.pessoaService.remove(id)
+      .then(()=> {
+        alert('Pessoa excluida com sucesso');
+        this.consultar();
+      })
   }
 
 }
