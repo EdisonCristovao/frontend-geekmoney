@@ -3,9 +3,26 @@
     {
       "id": 1,
       "nome": "Edison Junior",
-      "cidade": "São josé",
+      "logradouro": "Rua la mermo",
+      "numero": "123",
+      "complemento": "Casa",
+      "bairro": "Zanelato",
+      "cep": "123435",
+      "cidade": "São josée",
       "estado": "Santa catarina",
       "status": true
+    },
+    {
+      "status": true,
+      "nome": "asdAAAAAAA",
+      "logradouro": "asdwww",
+      "numero": "asdwww",
+      "complemento": "asdww",
+      "bairro": "asdww",
+      "cep": "asdww",
+      "cidade": "asdwww",
+      "estado": "São paulo",
+      "id": 2
     }
   ]
 }

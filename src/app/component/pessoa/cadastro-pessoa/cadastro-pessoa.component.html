@@ -1,9 +1,9 @@
-{{ pessoa | json }}
-<form #pessoaFrom="ngForm" (ngSubmit)=salvarPessoa(pessoaFrom)>
+
+<form>
   <div>
     <div class="row">
       <div class="form-group col-md-12 text-center">
-        <h3>Cadastro Pessoa</h3>
+        <h3>{{ acao }} Pessoa</h3>
       </div>
       
       
@@ -51,7 +51,7 @@
       </div>
 
       <div class="col-md-12">
-        <button class="btn btn-secondary">Salvar</button>
+        <button (click)="salvarPessoa(id)" class="btn btn-secondary">Salvar</button>
         <button class="btn btn-secondary">Limpar</button>
         <a routerLink="/pessoa">Voltar para a pesquisa.</a>
       </div>

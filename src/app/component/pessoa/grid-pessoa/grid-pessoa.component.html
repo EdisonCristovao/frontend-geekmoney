@@ -15,7 +15,7 @@
           <td>{{ pessoa.estado }}</td>
           <td>{{ pessoa.status}}</td>
           <td class="text-center"> 
-            <a class="btn btn-secondary btn-sm"><i class="fa fa-pencil"></i></a>
+            <a [routerLink]="['editar', pessoa.id]" class="btn btn-secondary btn-sm"><i class="fa fa-pencil"></i></a>
             <a (click)="remove(pessoa.id)" class="btn btn-secondary btn-sm"><i class="fa fa-trash"></i></a>
           </td>
         </tr>

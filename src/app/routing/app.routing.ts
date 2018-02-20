@@ -5,9 +5,10 @@ import { BuscaLancamentoComponent } from '../component/lancamento/busca-lancamen
 import { CadastroPessoaComponent } from '../component/pessoa/cadastro-pessoa/cadastro-pessoa.component';
 
 const APP_ROUTES: Routes = [
-    { path: 'pessoa', component: BuscaPessoaComponent},
-    { path: 'lancamento', component: BuscaLancamentoComponent},
-    { path: 'pessoa/cadastrar', component: CadastroPessoaComponent}
+    { path: 'pessoa', component: BuscaPessoaComponent },
+    { path: 'lancamento', component: BuscaLancamentoComponent },
+    { path: 'pessoa/cadastrar', component: CadastroPessoaComponent },
+    { path: 'pessoa/editar/:id', component: CadastroPessoaComponent }
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(APP_ROUTES);
