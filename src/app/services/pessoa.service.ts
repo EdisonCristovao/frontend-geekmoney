@@ -1,18 +1,25 @@
+import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import { Pessoa } from '../model/Pessoa';
 
 @Injectable()
 export class PessoaService {
 
-  baseUrl: string = 'http://localhost:3000/';
+  baseUrl: string;
 
-  constructor(private http: Http) { }
+  constructor(private http: Http) {
+    this.baseUrl = environment.apiUrl;
+    console.log(this.baseUrl);
+  }
 
   consultar(): Promise<any> {
+    const headers: Headers = new Headers();
+    headers.append('Authorization','Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg==');
+
     const url = this.baseUrl + 'pessoas';
-    return this.http.get(url)
+    return this.http.get(url , {headers})
       .toPromise()
       .then( resp => resp.json()
       )
