@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://geekmoney-backend.herokuapp.com'
+  apiUrl: 'https://geekmoney-backend.herokuapp.com/'
 };
