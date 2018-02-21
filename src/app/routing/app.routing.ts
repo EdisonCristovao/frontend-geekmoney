@@ -1,3 +1,4 @@
+import { LoginComponent } from './../seguranca/login/login.component';
 import { BuscaPessoaComponent } from './../component/pessoa/busca-pessoa/busca-pessoa.component';
 import { Routes, RouterModule } from '@angular/router';
 import { ModuleWithProviders } from '@angular/core';
@@ -8,7 +9,8 @@ const APP_ROUTES: Routes = [
     { path: 'pessoa', component: BuscaPessoaComponent },
     { path: 'lancamento', component: BuscaLancamentoComponent },
     { path: 'pessoa/cadastrar', component: CadastroPessoaComponent },
-    { path: 'pessoa/editar/:id', component: CadastroPessoaComponent }
+    { path: 'pessoa/editar/:id', component: CadastroPessoaComponent },
+    { path: 'login', component: LoginComponent }
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(APP_ROUTES);

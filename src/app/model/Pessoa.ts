@@ -1,16 +1,14 @@
+import { Endereco } from './Endereco';
+
 export class Pessoa {
-    id:number;
+
+    codigo: number;
     nome: String;
-    logradouro: String;
-    numero: String;
-    complemento: String;
-    bairro: String;
-    cep: String;
-    cidade: String;
-    estado: String;
-    status: boolean;
+    endereco: Endereco;
+    ativo: boolean;
 
     constructor() {
-        this.status = true;
+        this.ativo = true;
+        this.endereco = new Endereco();
     }
 }

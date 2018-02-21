@@ -1,9 +1,11 @@
+import { AuthService } from './seguranca/auth.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpModule } from '@angular/http';
 import { routing } from './routing/app.routing';
 import { FormsModule } from '@angular/forms';
+import { JwtHelper } from 'angular2-jwt';
 
 import { AppComponent } from './app.component';
 import { CadastroPessoaComponent } from './component/pessoa/cadastro-pessoa/cadastro-pessoa.component';
@@ -14,6 +16,7 @@ import { BuscaPessoaComponent } from './component/pessoa/busca-pessoa/busca-pess
 import { GridPessoaComponent } from './component/pessoa/grid-pessoa/grid-pessoa.component';
 import { NavbarComponent } from './component/template/navbar/navbar.component';
 import { PessoaService } from './services/pessoa.service';
+import { LoginComponent } from './seguranca/login/login.component';
 
 
 
@@ -26,7 +29,8 @@ import { PessoaService } from './services/pessoa.service';
     BuscaLancamentoComponent,
     BuscaPessoaComponent,
     GridPessoaComponent,
-    NavbarComponent
+    NavbarComponent,
+    LoginComponent
   ],
   imports: [
     FormsModule,
@@ -35,7 +39,11 @@ import { PessoaService } from './services/pessoa.service';
     NgbModule.forRoot(),
     HttpModule
   ],
-  providers: [PessoaService],
+  providers: [
+    PessoaService,
+    AuthService,
+    JwtHelper,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

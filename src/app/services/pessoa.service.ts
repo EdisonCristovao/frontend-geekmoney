@@ -14,12 +14,16 @@ export class PessoaService {
     console.log(this.baseUrl);
   }
 
-  consultar(): Promise<any> {
+  headers() {
     const headers: Headers = new Headers();
     headers.append('Authorization','Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg==');
+    return {headers};
+  }
 
+  consultar(): Promise<any> {
+    
     const url = this.baseUrl + 'pessoas';
-    return this.http.get(url , {headers})
+    return this.http.get(url , this.headers())
       .toPromise()
       .then( resp => resp.json()
       )
@@ -27,7 +31,7 @@ export class PessoaService {
 
   consultarPorId(id: Number): Promise<any> {
     const url = this.baseUrl + `pessoas/${id}` ;
-    return this.http.get(url)
+    return this.http.get(url, this.headers())
       .toPromise()
       .then( resp => resp.json()
       )
@@ -35,21 +39,21 @@ export class PessoaService {
 
   remove(id: number): Promise<any> {
     const url = this.baseUrl + `pessoas/${id}` ;
-    return this.http.delete(url)
+    return this.http.delete(url, this.headers())
       .toPromise()
       .then(()=> null)
   }
 
   salvar(pessoa: Pessoa): Promise<any> {
     const url = this.baseUrl + `pessoas`;
-    return this.http.post(url, pessoa)
+    return this.http.post(url, pessoa, this.headers())
       .toPromise()
       .then(() => null)
   }
 
   editar(pessoa: Pessoa): Promise<any> {
-    const url = this.baseUrl + `pessoas/${pessoa.id}` ;
-    return this.http.put(url, pessoa).toPromise()
+    const url = this.baseUrl + `pessoas/${pessoa.codigo}` ;
+    return this.http.put(url, pessoa, this.headers()).toPromise()
     .then(() => null)
   }
 }

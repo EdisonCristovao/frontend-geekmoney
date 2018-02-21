@@ -14,37 +14,37 @@
 
       <div class="form-group col-md-9">
         <label>Logradouro</label>
-        <input type="text" class="form-control" [(ngModel)]="pessoa.logradouro" name="logradouro">
+        <input type="text" class="form-control" [(ngModel)]="pessoa.endereco.logradouro" name="logradouro">
       </div>
 
       <div class="form-group col-md-3">
         <label>Numero</label>
-        <input type="text" class="form-control" [(ngModel)]="pessoa.numero"del name="numero">
+        <input type="text" class="form-control" [(ngModel)]="pessoa.endereco.numero" name="numero">
       </div>
 
       <div class="form-group col-md-4">
         <label>Complemento</label>
-        <input type="text" class="form-control" [(ngModel)]="pessoa.complemento" name="complemento">
+        <input type="text" class="form-control" [(ngModel)]="pessoa.endereco.complemento" name="complemento">
       </div>
 
       <div class="form-group col-md-4">
         <label>Bairro</label>
-        <input type="text" class="form-control" [(ngModel)]="pessoa.bairro" name="bairro">
+        <input type="text" class="form-control" [(ngModel)]="pessoa.endereco.bairro" name="bairro">
       </div>
 
       <div class="form-group col-md-4">
         <label>CEP</label>
-        <input type="text" class="form-control" [(ngModel)]="pessoa.cep" name="cep">
+        <input type="text" class="form-control" [(ngModel)]="pessoa.endereco.cep" name="cep">
       </div>
 
       <div class="form-group col-md-6">
         <label>Cidade</label>
-        <input type="text" class="form-control" [(ngModel)]="pessoa.cidade" name="cidade">
+        <input type="text" class="form-control" [(ngModel)]="pessoa.endereco.cidade" name="cidade">
       </div>
 
       <div class="form-group col-md-6">
         <label>Estado</label>
-        <select type="text" class="form-control" [(ngModel)]="pessoa.estado" name="estado">
+        <select type="text" class="form-control" [(ngModel)]="pessoa.endereco.estado" name="estado">
             <option>Selecione um estado ....</option>
             <option *ngFor="let estado of estados" [value]="estado"> {{ estado }}</option>
         </select>
