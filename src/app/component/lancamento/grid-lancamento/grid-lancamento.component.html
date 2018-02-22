@@ -2,31 +2,28 @@
   <div>
     <table class="table table-striped">
       <thead>
-      <th>Dado1</th>
-      <th>Dado1</th>
-      <th>Dado1</th>
+      <th>Pessoa</th>
+      <th>Descrição</th>
+      <th>Vencimento</th>
+      <th>Pagamento</th>
+      <th>Valor</th>
       <th>Ação</th>
       </thead>
       <tbody>
-      <tr>
-        <td>dado</td>
-        <td>dado</td>
-        <td>dado</td>
-        <td>dado</td>
+      <tr *ngFor="let lancamento of lancamentos">
+        <td>{{ lancamento.pessoa }}</td>
+        <td>{{ lancamento.descricao }}</td>
+        <td>{{ lancamento.dataVencimento }}</td>
+        <td>{{ lancamento.dataPagamento }}</td>
+        <td>{{ lancamento.valor }}</td>
+        <td>
+          <a [routerLink]="['editar', lancamento.codigo]" class="btn btn-secondary btn-sm"><i class="fa fa-pencil"></i></a>
+          <a (click)="remove(lancamento.codigo)" class="btn btn-secondary btn-sm"><i class="fa fa-trash"></i></a>
+        </td>
       </tr>
-      <tr>
-        <td>dado</td>
-        <td>dado</td>
-        <td>dado</td>
-        <td>dado</td>
-      </tr>
-      <tr>
-        <td>dado</td>
-        <td>dado</td>
-        <td>dado</td>
-        <td>dado</td>
-      </tr>
+      <ngb-pagination [collectionSize]="100" [maxSize]="10" [(page)]="page" aria-label="Default pagination"></ngb-pagination>
       </tbody>
+      
     </table>
   </div>
 

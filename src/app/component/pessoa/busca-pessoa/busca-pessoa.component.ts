@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PessoaService } from './../../../services/pessoa.service';
+import { PessoaService } from '../pessoa.service';
 
 @Component({
   selector: 'app-busca-pessoa',

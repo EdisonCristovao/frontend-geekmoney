@@ -3,7 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { NgForm } from '@angular/forms/src/directives/ng_form';
 
 import { Pessoa } from './../../../model/Pessoa';
-import { PessoaService } from '../../../services/pessoa.service';
+import { PessoaService } from '../pessoa.service';
 
 @Component({
   selector: 'app-cadastro-pessoa',

@@ -1,3 +1,4 @@
+import { LancamentoService } from './../lancamento.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BuscaLancamentoComponent implements OnInit {
 
-  constructor() { }
+  lancamentos: any[];
+  page = 1;
+  totalElementos;
+
+  constructor(private lancamentoService: LancamentoService) { }
 
   ngOnInit() {
+    this.consultaResumida();
+  }
+
+  consultaResumida() {
+    this.lancamentoService.consultaResumida()
+      .then(lancamentos => {
+        this.lancamentos = lancamentos;
+        this.totalElementos = this.lancamentos.length;
+      })
   }
 
 }

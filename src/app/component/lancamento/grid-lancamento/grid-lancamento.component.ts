@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-grid-lancamento',
@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./grid-lancamento.component.css']
 })
 export class GridLancamentoComponent implements OnInit {
-
+  
+  @Input()
+  lancamentos: any[];
+  
   constructor() { }
 
   ngOnInit() {
   }
-
+  
 }

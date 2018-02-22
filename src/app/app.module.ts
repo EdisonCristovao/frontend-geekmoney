@@ -1,3 +1,5 @@
+import { LancamentoService } from './component/lancamento/lancamento.service';
+import { PessoaService } from './component/pessoa/pessoa.service';
 import { AuthService } from './seguranca/auth.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -15,7 +17,6 @@ import { BuscaLancamentoComponent } from './component/lancamento/busca-lancament
 import { BuscaPessoaComponent } from './component/pessoa/busca-pessoa/busca-pessoa.component';
 import { GridPessoaComponent } from './component/pessoa/grid-pessoa/grid-pessoa.component';
 import { NavbarComponent } from './component/template/navbar/navbar.component';
-import { PessoaService } from './services/pessoa.service';
 import { LoginComponent } from './seguranca/login/login.component';
 
 
@@ -41,6 +42,7 @@ import { LoginComponent } from './seguranca/login/login.component';
   ],
   providers: [
     PessoaService,
+    LancamentoService,
     AuthService,
     JwtHelper,
   ],

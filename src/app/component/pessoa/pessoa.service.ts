@@ -1,8 +1,8 @@
-import { environment } from './../../environments/environment';
+import { Pessoa } from './../../model/Pessoa';
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
-import { Pessoa } from '../model/Pessoa';
+import { environment } from '../../../environments/environment';
 
 @Injectable()
 export class PessoaService {
@@ -11,7 +11,6 @@ export class PessoaService {
 
   constructor(private http: Http) {
     this.baseUrl = environment.apiUrl;
-    console.log(this.baseUrl);
   }
 
   headers() {
