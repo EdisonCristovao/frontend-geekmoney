@@ -1,24 +1,25 @@
+
 <div class="">
   <div>
     <h2>Lançamentos</h2>
   </div>
+  <form (ngSubmit)="consultaResumida()">
+    <div class="form-group">
+      <label>Descrição</label>
+      <input type="text" class="form-control" name="descricao" [(ngModel)]="descricao">
+    </div>
 
-  <div class="form-group">
-    <label>Descrição</label>
-    <input type="text" class="form-control">
-  </div>
+    <div class="form-group">
+      <label class="block">Vencimento</label>
+      <input ngbDatepicker class="form-control col-2 inline" #de="ngbDatepicker" (click)="de.toggle()" [(ngModel)]="dataVencimentoDe" name="dataVencimentoDe">
+      <label>até</label>
+      <input ngbDatepicker class="form-control col-2 inline" #ate="ngbDatepicker" (click)="ate.toggle()" [(ngModel)]="dataVencimentoAte" name="dataVencimentoAte">
+    </div>
 
-  <div class="form-group">
-    <label class="block">Vencimento</label>
-    <input type="text" class="form-control col-2 inline">
-    <label>até</label>
-    <input type="text" class="form-control col-2 inline">
-  </div>
-
-  <div>
-    <button class="btn btn-secondary">Buscar</button>
-  </div>
-
+    <div>
+      <button class="btn btn-secondary">Buscar</button>
+    </div>
+  </form>
   <br>
 
 </div>
