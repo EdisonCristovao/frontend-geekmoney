@@ -10,6 +10,9 @@ export interface LancamentoFiltro {
   descricao: string;
   dataVencimentoDe: string;
   dataVencimentoAte: string;
+
+  page: number;
+  size: number;
 }
 
 @Injectable()
@@ -39,12 +42,25 @@ export class LancamentoService {
     }
 
     if(filtro.dataVencimentoAte) {
-      params.set('dataVencimentoAte', moment(filtro.dataVencimentoAte).format('YYY-MM-DD'));
+      params.set('dataVencimentoAte', filtro.dataVencimentoAte);
     }
 
     const url = `${this.lancamentosUrl}?resumo`;
     return this.http.get(url, { headers : this.headers(), search : filtro})
       .toPromise()
-      .then(resp => resp.json().content );
+      .then(resp => {
+        const retorno = {
+          totalElementos: resp.json().totalElements,
+          content: resp.json().content
+        }
+        return retorno;
+      });
+  }
+
+  remover(codigo) {
+    const url = `${this.lancamentosUrl}/${codigo}`;
+    return this.http.delete(url, {headers: this.headers()})
+      .toPromise()
+      .then(() => null);
   }
 }
