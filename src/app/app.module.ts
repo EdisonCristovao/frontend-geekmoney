@@ -1,12 +1,9 @@
-import { LancamentoService } from './component/lancamento/lancamento.service';
-import { PessoaService } from './component/pessoa/pessoa.service';
-import { AuthService } from './seguranca/auth.service';
-import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpModule } from '@angular/http';
-import { routing } from './routing/app.routing';
-import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+
 import { JwtHelper } from 'angular2-jwt';
 
 import { AppComponent } from './app.component';
@@ -18,6 +15,11 @@ import { BuscaPessoaComponent } from './component/pessoa/busca-pessoa/busca-pess
 import { GridPessoaComponent } from './component/pessoa/grid-pessoa/grid-pessoa.component';
 import { NavbarComponent } from './component/template/navbar/navbar.component';
 import { LoginComponent } from './seguranca/login/login.component';
+import { LancamentoService } from './component/lancamento/lancamento.service';
+import { PessoaService } from './component/pessoa/pessoa.service';
+import { AuthService } from './seguranca/auth.service';
+import { AppRoutingModule } from './app-routing.module';
+
 
 
 
@@ -36,9 +38,9 @@ import { LoginComponent } from './seguranca/login/login.component';
   imports: [
     FormsModule,
     BrowserModule,
-    routing,
     NgbModule.forRoot(),
-    HttpModule
+    HttpModule,
+    AppRoutingModule,
   ],
   providers: [
     PessoaService,
