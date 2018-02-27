@@ -39,13 +39,14 @@ import { ModalModule } from 'ngx-bootstrap/modal/modal.module';
   imports: [
     FormsModule,
     BrowserModule,
-    NgbModule.forRoot(),
     HttpModule,
     AppRoutingModule,
     HttpModule,
     PaginationModule.forRoot(),
     ToastyModule.forRoot(),
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    NgbModule.forRoot()
+
   ],
   providers: [
     PessoaService,
