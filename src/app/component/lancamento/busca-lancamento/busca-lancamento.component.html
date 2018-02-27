@@ -1,3 +1,4 @@
+{{ dataVencimentoDe | json}}
 
 <div class="">
   <div>
@@ -11,9 +12,9 @@
 
     <div class="form-group">
       <label class="block">Vencimento</label>
-      <input ngbDatepicker class="form-control col-2 inline" #de="ngbDatepicker" (click)="de.toggle()" [(ngModel)]="dataVencimentoDe" name="dataVencimentoDe">
+      <input class="form-control col-2 inline" [(ngModel)]="dataVencimentoDe" name="dataVencimentoDe">
       <label>até</label>
-      <input ngbDatepicker class="form-control col-2 inline" #ate="ngbDatepicker" (click)="ate.toggle()" [(ngModel)]="dataVencimentoAte" name="dataVencimentoAte">
+      <input class="form-control col-2 inline" [(ngModel)]="dataVencimentoAte" name="dataVencimentoAte">
     </div>
 
     <div>
@@ -24,5 +25,50 @@
 
 </div>
 
-<app-grid-lancamento [lancamentos]="lancamentos"></app-grid-lancamento>
+<div class="">
+  <div>
+    <table class="table table-striped">
+      <thead>
+      <th>Pessoa</th>
+      <th>Descrição</th>
+      <th>Vencimento</th>
+      <th>Pagamento</th>
+      <th>Valor</th>
+      <th>Ação</th>
+      </thead>
+      <tbody>
+      <tr *ngFor="let lancamento of lancamentos">
+        <td>{{ lancamento.pessoa }}</td>
+        <td>{{ lancamento.descricao }}</td>
+        <td>{{ lancamento.dataVencimento }}</td>
+        <td>{{ lancamento.dataPagamento }}</td>
+        <td>{{ lancamento.valor }}</td>
+        <td>
+          <a [routerLink]="['editar', lancamento.codigo]" class="btn btn-secondary btn-sm"><i class="fa fa-pencil"></i></a>
+          <a (click)="showModal(lancamento.codigo, confirDialog)" class="btn btn-secondary btn-sm"><i class="fa fa-trash"></i></a>
+        </td>
+      </tr>
+      </tbody>
+      
+    </table>
+    <div>
+      <pagination pageBtnClass="btn-secondary btn" [directionLinks]="false" [totalItems]="totalElementos" [itemsPerPage]="itemPorPagina" [(ngModel)]="pagina"
+              (pageChanged)="mudaPagina($event)" ></pagination>
+    </div>
+  </div>
 
+  <br>
+
+  <div>
+    <button class="btn btn-secondary">Novo Lançamento</button>
+  </div>
+</div>
+
+<!-- MODAL DE CONFIRMAÇAO DE EXCLUSAO-->
+<ng-template #confirDialog>
+  <div class="modal-body text-center">
+    <p>Voce confirma a exclusão?</p>
+    <button type="button" class="btn btn-default" (click)="confirm()" >Sm</button>
+    <button type="button" class="btn btn-default" (click)="decline()" >Não</button>
+  </div>
+</ng-template>
