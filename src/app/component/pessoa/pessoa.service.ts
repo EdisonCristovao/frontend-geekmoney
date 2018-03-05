@@ -2,7 +2,7 @@ import { Pessoa } from './../../model/Pessoa';
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
-import { environment } from '../../../environments/environment';
+import { environment } from '../../../environments/environment.prod';
 
 @Injectable()
 export class PessoaService {
@@ -25,7 +25,7 @@ export class PessoaService {
     return this.http.get(url , this.headers())
       .toPromise()
       .then( resp => resp.json()
-      )
+      ).catch(resp => console.log(resp));
   }
 
   consultarPorId(id: Number): Promise<any> {
@@ -33,7 +33,9 @@ export class PessoaService {
     return this.http.get(url, this.headers())
       .toPromise()
       .then( resp => resp.json()
-      )
+      ).catch (resp =>{
+
+      })
   }
 
   remove(id: number): Promise<any> {

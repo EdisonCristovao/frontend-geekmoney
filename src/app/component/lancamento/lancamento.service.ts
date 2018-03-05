@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, URLSearchParams } from '@angular/http';
-import { environment } from '../../../environments/environment';
+import { environment } from '../../../environments/environment.prod';
 import * as moment from 'moment';
 
 import 'rxjs/add/operator/toPromise';
