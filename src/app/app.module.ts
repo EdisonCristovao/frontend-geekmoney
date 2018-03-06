@@ -1,3 +1,5 @@
+import { RouterModule } from '@angular/router';
+import { PessoaModule } from './component/pessoa/pessoa.module';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgModule, LOCALE_ID } from '@angular/core';
@@ -22,6 +24,7 @@ import { PessoaService } from './component/pessoa/pessoa.service';
 import { AuthService } from './seguranca/auth.service';
 import { AppRoutingModule } from './app-routing.module';
 import { ModalModule } from 'ngx-bootstrap/modal/modal.module';
+import { SegurancaModule } from './seguranca/seguranca.module';
 
 
 
@@ -37,15 +40,18 @@ import { ModalModule } from 'ngx-bootstrap/modal/modal.module';
     LoginComponent
   ],
   imports: [
+    RouterModule,
     FormsModule,
     BrowserModule,
+    
     HttpModule,
     AppRoutingModule,
-    HttpModule,
+    PessoaModule,
     PaginationModule.forRoot(),
     ToastyModule.forRoot(),
     ModalModule.forRoot(),
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    SegurancaModule
 
   ],
   providers: [

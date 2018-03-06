@@ -2,7 +2,7 @@ import { Pessoa } from './../../model/Pessoa';
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
-import { environment } from '../../../environments/environment.prod';
+import { environment } from '../../../environments/environment';
 
 @Injectable()
 export class PessoaService {

@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers, URLSearchParams } from '@angular/http';
-import { environment } from '../../../environments/environment.prod';
+import { Headers, URLSearchParams } from '@angular/http';
+import { environment } from '../../../environments/environment';
 import * as moment from 'moment';
 
 import 'rxjs/add/operator/toPromise';
+import { AuthHttp } from 'angular2-jwt';
 
 
 export interface LancamentoFiltro {
@@ -20,9 +21,10 @@ export class LancamentoService {
 
   lancamentosUrl: string;
   
-  constructor(private http: Http) { 
+  constructor(private http: AuthHttp) { 
     this.lancamentosUrl = environment.apiUrl + 'lancamentos';
   }
+
 
   headers() {
     const headers: Headers = new Headers();
@@ -46,7 +48,7 @@ export class LancamentoService {
     }
 
     const url = `${this.lancamentosUrl}?resumo`;
-    return this.http.get(url, { headers : this.headers(), search : filtro})
+    return this.http.get(url, { search : filtro})
       .toPromise()
       .then(resp => {
         const retorno = {
@@ -59,7 +61,7 @@ export class LancamentoService {
 
   remover(codigo) {
     const url = `${this.lancamentosUrl}/${codigo}`;
-    return this.http.delete(url, {headers: this.headers()})
+    return this.http.delete(url)
       .toPromise()
       .then(() => null);
   }

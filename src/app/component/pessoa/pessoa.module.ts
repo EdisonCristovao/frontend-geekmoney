@@ -1,10 +1,14 @@
+import { PessoaRoutingModule } from './pessoa-routing.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+
+    PessoaRoutingModule
   ],
-  declarations: []
+  declarations: [],
+  exports: []
 })
 export class PessoaModule { }
