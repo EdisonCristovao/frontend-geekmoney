@@ -15,6 +15,7 @@ export class AppComponent {
     private router: Router) {
       this.toastyConfig.theme = 'bootstrap';
   }
+  
   exibeNavBar() {
     return this.router.url !== '/login';
   }

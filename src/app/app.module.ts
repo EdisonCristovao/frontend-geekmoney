@@ -1,4 +1,3 @@
-import { RouterModule } from '@angular/router';
 import { PessoaModule } from './component/pessoa/pessoa.module';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -8,6 +7,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { JwtHelper } from 'angular2-jwt';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { ModalModule } from 'ngx-bootstrap/modal/modal.module';
 import { ToastyModule } from 'ng2-toasty';
 
 
@@ -23,40 +23,35 @@ import { LancamentoService } from './component/lancamento/lancamento.service';
 import { PessoaService } from './component/pessoa/pessoa.service';
 import { AuthService } from './seguranca/auth.service';
 import { AppRoutingModule } from './app-routing.module';
-import { ModalModule } from 'ngx-bootstrap/modal/modal.module';
 import { SegurancaModule } from './seguranca/seguranca.module';
+import { LancamentoModule } from './component/lancamento/lancamento.module';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    CadastroPessoaComponent,
-    CadastroLancamentoComponent,
-    BuscaLancamentoComponent,
-    BuscaPessoaComponent,
-    GridPessoaComponent,
     NavbarComponent,
+    
     LoginComponent
   ],
   imports: [
-    RouterModule,
     FormsModule,
     BrowserModule,
-    
     HttpModule,
+    
     AppRoutingModule,
     PessoaModule,
-    PaginationModule.forRoot(),
+    LancamentoModule,
+    
     ToastyModule.forRoot(),
     ModalModule.forRoot(),
     NgbModule.forRoot(),
     SegurancaModule
 
+
   ],
   providers: [
-    PessoaService,
-    LancamentoService,
     AuthService,
     JwtHelper,
     {provide: LOCALE_ID, useValue: 'pt-BR'}
