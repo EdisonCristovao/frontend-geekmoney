@@ -1,4 +1,3 @@
-import { PessoaModule } from './component/pessoa/pessoa.module';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgModule, LOCALE_ID } from '@angular/core';
@@ -16,7 +15,6 @@ import { CadastroPessoaComponent } from './component/pessoa/cadastro-pessoa/cada
 import { CadastroLancamentoComponent } from './component/lancamento/cadastro-lancamento/cadastro-lancamento.component';
 import { BuscaLancamentoComponent } from './component/lancamento/busca-lancamento/busca-lancamento.component';
 import { BuscaPessoaComponent } from './component/pessoa/busca-pessoa/busca-pessoa.component';
-import { GridPessoaComponent } from './component/pessoa/grid-pessoa/grid-pessoa.component';
 import { NavbarComponent } from './component/template/navbar/navbar.component';
 import { LoginComponent } from './seguranca/login/login.component';
 import { LancamentoService } from './component/lancamento/lancamento.service';
@@ -25,6 +23,8 @@ import { AuthService } from './seguranca/auth.service';
 import { AppRoutingModule } from './app-routing.module';
 import { SegurancaModule } from './seguranca/seguranca.module';
 import { LancamentoModule } from './component/lancamento/lancamento.module';
+import { PessoaModule } from './component/pessoa/pessoa.module';
+
 
 
 
@@ -32,8 +32,6 @@ import { LancamentoModule } from './component/lancamento/lancamento.module';
   declarations: [
     AppComponent,
     NavbarComponent,
-    
-    LoginComponent
   ],
   imports: [
     FormsModule,
@@ -43,6 +41,7 @@ import { LancamentoModule } from './component/lancamento/lancamento.module';
     AppRoutingModule,
     PessoaModule,
     LancamentoModule,
+    SegurancaModule,
     
     ToastyModule.forRoot(),
     ModalModule.forRoot(),

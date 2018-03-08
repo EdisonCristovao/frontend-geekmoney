@@ -6,8 +6,7 @@ import { LoginComponent } from './seguranca/login/login.component';
 import { AppComponent } from './app.component';
 
 const APP_ROUTES: Routes = [
-    { path: '' , redirectTo: 'pessoa', pathMatch: 'full'},
-    { path: 'login', component: LoginComponent },
+    { path: '' , redirectTo: 'login', pathMatch: 'full'},
 ];
 
 

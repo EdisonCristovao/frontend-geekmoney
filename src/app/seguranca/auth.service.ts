@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { ToastyService } from 'ng2-toasty';
 import { environment } from './../../environments/environment';
 import { JwtHelper } from 'angular2-jwt';
 import { Injectable } from '@angular/core';
@@ -11,6 +13,8 @@ export class AuthService {
   jwtPayload: any;
 
   constructor(
+    private route: Router,
+    private toastyService: ToastyService,
     private http: Http,
     private jwtHelper: JwtHelper) { 
       this.ouathTokenUrl = environment.apiUrl + 'oauth/token';
@@ -27,11 +31,12 @@ export class AuthService {
 
     return this.http.post(this.ouathTokenUrl, body, {headers}).toPromise()
     .then( resp => {
-      console.log(resp)
       this.armazenarToken(resp.json().access_token);
+      this.toastyService.success('Usuario conectado!');
+      this.route.navigate(['pessoa'])
     })
     .catch(resp => {
-      console.log(resp)
+      this.toastyService.error('Erro, Verifique usuario e senha!')
     })
   }
 
